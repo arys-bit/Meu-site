@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.*
+qa/
+*.log
+.DS_Store
+.vscode/
+scripts/
+design-qa.md
+pagina.png
