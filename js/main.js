@@ -560,71 +560,95 @@
       opacity: '+=0.06', duration: 7, ease: 'sine.inOut', repeat: -1, yoyo: true, stagger: 2,
     });
 
-    /* Section eyebrow + title reveal on scroll */
-    gsap.utils.toArray('.section-head, .cta, .about-copy, .contact-form').forEach((el) => {
-      gsap.from(el, {
-        opacity: 0, y: 30, duration: 0.8, ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 82%' },
-      });
-    });
+    /* Scroll reveals: distances/durations scale down on narrow viewports so
+       motion stays subtle on mobile instead of shifting layout dramatically. */
+    const mm = gsap.matchMedia();
+    mm.add(
+      { isMobile: '(max-width: 640px)', isDesktop: '(min-width: 641px)' },
+      (context) => {
+        const { isMobile } = context.conditions;
+        const d = (dist) => (isMobile ? Math.round(dist * 0.5) : dist);
+        const t = (dur) => (isMobile ? Math.max(0.35, +(dur * 0.85).toFixed(2)) : dur);
 
-    gsap.utils.toArray('.timeline-item').forEach((item, i) => {
-      gsap.from(item, {
-        opacity: 0, x: -20, duration: 0.6, ease: 'power2.out',
-        scrollTrigger: {
-          trigger: item, start: 'top 82%',
-          onEnter: () => item.classList.add('is-seen'),
-        },
-      });
-    });
+        gsap.utils.toArray('.section-head, .cta, .about-copy, .contact-form').forEach((el) => {
+          gsap.from(el, {
+            opacity: 0, y: d(30), duration: t(0.8), ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 82%' },
+          });
+        });
 
-    gsap.from('.feature-card', {
-      opacity: 0, y: 40, duration: 0.9, ease: 'power2.out',
-      scrollTrigger: { trigger: '.feature-card', start: 'top 80%' },
-    });
-    gsap.from('.mock-frame', {
-      opacity: 0, y: 30, duration: 1, ease: 'power2.out',
-      scrollTrigger: { trigger: '.feature-mock', start: 'top 82%' },
-    });
-    gsap.from('.quote-card', {
-      opacity: 0, y: 30, duration: 0.8, ease: 'power2.out',
-      scrollTrigger: { trigger: '.quote-card', start: 'top 85%' },
-    });
+        gsap.utils.toArray('.timeline-item').forEach((item) => {
+          gsap.from(item, {
+            opacity: 0, x: isMobile ? -10 : -20, duration: t(0.6), ease: 'power2.out',
+            scrollTrigger: {
+              trigger: item, start: 'top 82%',
+              onEnter: () => item.classList.add('is-seen'),
+            },
+          });
+        });
 
-    gsap.from('.portrait-frame', {
-      opacity: 0, scale: 0.8, duration: 0.8, ease: 'back.out(1.6)',
-      scrollTrigger: { trigger: '.about', start: 'top 78%' },
-    });
+        gsap.from('.feature-card', {
+          opacity: 0, y: d(40), duration: t(0.9), ease: 'power2.out',
+          scrollTrigger: { trigger: '.feature-card', start: 'top 80%' },
+        });
+        gsap.from('.mock-frame', {
+          opacity: 0, y: d(30), duration: t(1), ease: 'power2.out',
+          scrollTrigger: { trigger: '.feature-mock', start: 'top 82%' },
+        });
+        gsap.from('.quote-card', {
+          opacity: 0, y: d(30), duration: t(0.8), ease: 'power2.out',
+          scrollTrigger: { trigger: '.quote-card', start: 'top 85%' },
+        });
 
-    /* Projects surging in on scroll */
-    gsap.utils.toArray('.project-card').forEach((card, i) => {
-      gsap.from(card, {
-        opacity: 0, y: 44, scale: 0.96, duration: 0.7, ease: 'power2.out',
-        scrollTrigger: { trigger: card, start: 'top 88%' },
-        delay: (i % 2) * 0.08,
-      });
-    });
+        gsap.from('.portrait-frame', {
+          opacity: 0, scale: isMobile ? 0.92 : 0.8, duration: t(0.8), ease: 'back.out(1.6)',
+          scrollTrigger: { trigger: '.about', start: 'top 78%' },
+        });
 
-    gsap.utils.toArray('.tech-grid li').forEach((chip, i) => {
-      gsap.from(chip, {
-        opacity: 0, y: 16, duration: 0.5, ease: 'power2.out',
-        scrollTrigger: { trigger: chip, start: 'top 92%' },
-        delay: (i % 4) * 0.05,
-      });
-    });
+        /* Projects surging in on scroll */
+        gsap.utils.toArray('.project-card').forEach((card, i) => {
+          gsap.from(card, {
+            opacity: 0, y: d(44), scale: isMobile ? 0.99 : 0.96, duration: t(0.7), ease: 'power2.out',
+            scrollTrigger: { trigger: card, start: 'top 88%' },
+            delay: (i % 2) * 0.08,
+          });
+        });
 
-    gsap.utils.toArray('.lab-card').forEach((card, i) => {
-      gsap.from(card, {
-        opacity: 0, y: 36, duration: 0.7, ease: 'power2.out',
-        scrollTrigger: { trigger: card, start: 'top 85%' },
-        delay: i * 0.1,
-      });
-    });
+        gsap.utils.toArray('.tech-grid li').forEach((chip, i) => {
+          gsap.from(chip, {
+            opacity: 0, y: d(16), duration: t(0.5), ease: 'power2.out',
+            scrollTrigger: { trigger: chip, start: 'top 92%' },
+            delay: (i % 4) * 0.05,
+          });
+        });
 
-    gsap.from('.contact-side', {
-      opacity: 0, y: 24, duration: 0.7, ease: 'power2.out',
-      scrollTrigger: { trigger: '.contact-side', start: 'top 88%' },
-    });
+        gsap.utils.toArray('.lab-card').forEach((card, i) => {
+          gsap.from(card, {
+            opacity: 0, y: d(36), duration: t(0.7), ease: 'power2.out',
+            scrollTrigger: { trigger: card, start: 'top 85%' },
+            delay: i * 0.1,
+          });
+        });
+
+        gsap.utils.toArray('.testimonial-card').forEach((card, i) => {
+          gsap.from(card, {
+            opacity: 0, y: d(30), duration: t(0.7), ease: 'power2.out',
+            scrollTrigger: { trigger: card, start: 'top 88%' },
+            delay: (i % 3) * 0.08,
+          });
+        });
+
+        gsap.from('.contact-side', {
+          opacity: 0, y: d(24), duration: t(0.7), ease: 'power2.out',
+          scrollTrigger: { trigger: '.contact-side', start: 'top 88%' },
+        });
+
+        return () => {
+          /* gsap.matchMedia auto-reverts tweens/ScrollTriggers created in this
+             context when the breakpoint no longer matches (e.g. rotation). */
+        };
+      }
+    );
   } else {
     document.querySelectorAll('.constellation .link, .constellation .comet, .constellation .comet-glow-trail').forEach((el) => {
       el.style.removeProperty('stroke-dasharray');
@@ -638,6 +662,20 @@
     document.querySelectorAll('.section-head, .feature-card, .quote-card, .project-card, .lab-card').forEach((el) => {
       el.style.opacity = 1;
     });
+  }
+
+  /* ============ Keep ScrollTrigger positions in sync with layout ============ */
+  if (window.ScrollTrigger) {
+    let refreshTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(refreshTimer);
+      refreshTimer = setTimeout(() => ScrollTrigger.refresh(), 200);
+    }, { passive: true });
+    window.addEventListener('orientationchange', () => {
+      clearTimeout(refreshTimer);
+      refreshTimer = setTimeout(() => ScrollTrigger.refresh(), 250);
+    });
+    window.addEventListener('load', () => ScrollTrigger.refresh());
   }
 
   /* ============ Timeline fill line (CSS var driven, no GSAP CSS-var-on-pseudo support) ============ */
