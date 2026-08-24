@@ -77,3 +77,32 @@ $$('.project-card button').forEach(button=>button.addEventListener('click',()=>{
 $('.modal-close')?.addEventListener('click',()=>modal.close());
 modal?.addEventListener('click',event=>{if(event.target===modal)modal.close()});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&modal?.open)modal.close()});
+
+// Cursor luminoso: discreto no desktop e desativado em telas touch.
+if(matchMedia('(hover: hover) and (pointer: fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const aura=document.createElement('span');
+  aura.className='cursor-aura';
+  aura.setAttribute('aria-hidden','true');
+  document.body.append(aura);
+  let lastSpark=0;
+  document.addEventListener('pointermove',event=>{
+    aura.style.left=`${event.clientX}px`;
+    aura.style.top=`${event.clientY}px`;
+    const now=performance.now();
+    if(now-lastSpark>85){
+      const spark=document.createElement('i');
+      spark.className='ambient-spark';
+      spark.style.left=`${event.clientX+(Math.random()-.5)*12}px`;
+      spark.style.top=`${event.clientY+(Math.random()-.5)*12}px`;
+      spark.style.setProperty('--dx',`${(Math.random()-.5)*25}px`);
+      spark.style.setProperty('--dy',`${-8-Math.random()*22}px`);
+      document.body.append(spark);
+      spark.addEventListener('animationend',()=>spark.remove(),{once:true});
+      lastSpark=now;
+    }
+  });
+  $$('a,button,.project-card,.service-card').forEach(el=>{
+    el.addEventListener('pointerenter',()=>aura.classList.add('is-hovering'));
+    el.addEventListener('pointerleave',()=>aura.classList.remove('is-hovering'));
+  });
+}
