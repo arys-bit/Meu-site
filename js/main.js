@@ -171,6 +171,21 @@
     if (reduceMotion) drawHeroCosmos(0);
   }
 
+  const heroWorkspace = document.querySelector('.hero-workspace');
+  if (heroWorkspace && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    heroWorkspace.addEventListener('pointermove', (event) => {
+      const rect = heroWorkspace.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      heroWorkspace.style.setProperty('--workspace-rotate-y', `${(x * 5).toFixed(2)}deg`);
+      heroWorkspace.style.setProperty('--workspace-rotate-x', `${(-y * 4).toFixed(2)}deg`);
+    });
+    heroWorkspace.addEventListener('pointerleave', () => {
+      heroWorkspace.style.setProperty('--workspace-rotate-y', '0deg');
+      heroWorkspace.style.setProperty('--workspace-rotate-x', '0deg');
+    });
+  }
+
   /* Seed visible dust even when the GSAP CDN is unavailable. */
   function seedStaticCometDust() {
     const cometPath = document.querySelector('.constellation .comet');
@@ -591,9 +606,9 @@
           opacity: 0, y: d(40), duration: t(0.9), ease: 'power2.out',
           scrollTrigger: { trigger: '.feature-card', start: 'top 80%' },
         });
-        gsap.from('.mock-frame', {
+        gsap.from('.feature-video-slot', {
           opacity: 0, y: d(30), duration: t(1), ease: 'power2.out',
-          scrollTrigger: { trigger: '.feature-mock', start: 'top 82%' },
+          scrollTrigger: { trigger: '.feature-video-slot', start: 'top 82%' },
         });
         gsap.from('.quote-card', {
           opacity: 0, y: d(30), duration: t(0.8), ease: 'power2.out',

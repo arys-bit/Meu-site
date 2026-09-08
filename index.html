@@ -125,75 +125,12 @@
               class="hero-date">— agosto de 2026</span></p>
         </div>
 
-        <div class="hero-graph">
-          <div class="lab-window" aria-label="Laboratório interativo de projetos">
-            <div class="lab-window__chrome">
-              <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-              <p>ARYLAB <span>/</span> LABORATÓRIO</p>
-              <span class="lab-online"><i></i> ONLINE</span>
-            </div>
-            <div class="lab-window__body">
-              <div class="lab-options" role="tablist" aria-label="Projetos e habilidades">
-                <button class="lab-option" type="button" role="tab" aria-selected="false" data-lab="app">
-                  <i class="ph ph-cube" aria-hidden="true"></i><span><b>01</b><strong>Primeiro app</strong><small>O
-                      começo de tudo</small></span>
-                </button>
-                <button class="lab-option" type="button" role="tab" aria-selected="false" data-lab="landing">
-                  <i class="ph ph-stack" aria-hidden="true"></i><span><b>02</b><strong>Landing
-                      pages</strong><small>Design que converte</small></span>
-                </button>
-                <button class="lab-option is-active" type="button" role="tab" aria-selected="true"
-                  data-lab="interfaces">
-                  <i class="ph ph-browser" aria-hidden="true"></i><span><b>03</b><strong>Interfaces
-                      interativas</strong><small>Experiências que engajam</small></span>
-                </button>
-                <button class="lab-option" type="button" role="tab" aria-selected="false" data-lab="platform">
-                  <i class="ph ph-database" aria-hidden="true"></i><span><b>04</b><strong>Plataformas
-                      completas</strong><small>Soluções escaláveis</small></span>
-                </button>
-                <button class="lab-option" type="button" role="tab" aria-selected="false" data-lab="next">
-                  <i class="ph ph-flask" aria-hidden="true"></i><span><b>05</b><strong>Próximo
-                      experimento</strong><small>Novos desafios, mais impacto</small></span>
-                </button>
-              </div>
-              <div class="lab-display" role="tabpanel" aria-live="polite">
-                <header class="lab-display__head">
-                  <div><span class="display-index">03</span>
-                    <h2 id="labDisplayTitle">Interfaces interativas</h2>
-                    <p id="labDisplayText">Experiências que engajam e transformam ideias em movimento.</p>
-                  </div>
-                  <i id="labDisplayIcon" class="ph ph-cursor-click" aria-hidden="true"></i>
-                </header>
-                <div class="lab-preview-screen">
-                  <div class="preview-toolbar"><span></span><span></span><span></span><small>arylab.studio</small></div>
-                  <div class="preview-page">
-                    <div class="preview-copy"><span id="previewKicker">DESIGN + CÓDIGO</span>
-                      <h3 id="previewTitle">Conectamos ideias<br>a experiências <em>memoráveis.</em></h3>
-                      <p id="previewDescription">Interfaces que despertam emoção e geram valor real.</p><button
-                        type="button" tabindex="-1">Ver projeto <i class="ph ph-arrow-up-right"></i></button>
-                    </div>
-                    <div class="preview-visual" id="labPreviewVisual">
-                      <div class="preview-loader" aria-hidden="true"></div>
-                      <img id="labPreviewImage" src="assets/projects/alicia-braids.png"
-                        alt="Prévia do projeto Alicia Braids">
-                      <span class="preview-scan-line" aria-hidden="true"></span>
-                      <i id="labPreviewIcon" class="ph ph-cursor-click" aria-hidden="true"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="lab-code-row">
-                  <pre id="labCode" aria-label="Trecho de código"><code>&lt;section class="experience"&gt;
-  &lt;h1&gt;Ideias em movimento&lt;/h1&gt;
-  &lt;Interaction delight="true" /&gt;
-&lt;/section&gt;</code></pre>
-                  <div class="lab-tags" id="labTags">
-                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GSAP</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <figure class="hero-graph hero-workspace" aria-label="Estação de trabalho digital da AryLab Studio">
+          <span class="hero-workspace__halo" aria-hidden="true"></span>
+          <img src="assets/hero-workspace.webp"
+            alt="Mesa de trabalho futurista com computador e interfaces digitais em tons de roxo">
+          <span class="hero-workspace__shine" aria-hidden="true"></span>
+        </figure>
       </div>
     </section>
 
@@ -257,64 +194,13 @@
           </div>
           <a href="#projetos" class="btn btn-primary btn-sm">Ver projeto completo ↗</a>
 
-          <div class="feature-mock">
-            <div class="mock-frame" aria-label="Demonstração interativa do aplicativo FocusFlow">
-              <div class="mock-topbar"><span></span><span></span><span></span></div>
-              <div class="mock-greeting">Bom dia, Ary ☀</div>
-              <div class="mock-dashboard">
-                <div class="mock-metrics">
-                  <div class="mock-ring" aria-label="Progresso atual: 72 por cento">
-                    <svg viewBox="0 0 80 80">
-                      <circle cx="40" cy="40" r="34" />
-                      <circle cx="40" cy="40" r="34" class="ring-fill" />
-                    </svg>
-                    <span id="mockProgress" aria-live="polite">72%</span>
-                  </div>
-                  <div class="mock-bars" aria-label="Progresso semanal">
-                    <button class="mock-bar" type="button" style="--h:40%;--delay:.12s" data-label="Segunda · 40%"
-                      aria-label="Segunda-feira: 40 por cento"></button>
-                    <button class="mock-bar" type="button" style="--h:65%;--delay:.22s" data-label="Terça · 65%"
-                      aria-label="Terça-feira: 65 por cento"></button>
-                    <button class="mock-bar" type="button" style="--h:50%;--delay:.32s" data-label="Quarta · 50%"
-                      aria-label="Quarta-feira: 50 por cento"></button>
-                    <button class="mock-bar" type="button" style="--h:80%;--delay:.42s" data-label="Quinta · 80%"
-                      aria-label="Quinta-feira: 80 por cento"></button>
-                    <button class="mock-bar" type="button" style="--h:55%;--delay:.52s" data-label="Sexta · 55%"
-                      aria-label="Sexta-feira: 55 por cento"></button>
-                    <button class="mock-bar" type="button" style="--h:70%;--delay:.62s" data-label="Sábado · 70%"
-                      aria-label="Sábado: 70 por cento"></button>
-                  </div>
-                  <p class="mock-chart-note" id="mockChartNote" aria-live="polite">Clique em uma barra para ver o dia
-                  </p>
-                  <div class="mock-tasks">
-                    <button class="mock-task done" type="button" aria-pressed="true">Estudar React avançado</button>
-                    <button class="mock-task done" type="button" aria-pressed="true">Revisar projeto da landing</button>
-                    <button class="mock-task" type="button" aria-pressed="false">Implementar autenticação</button>
-                    <button class="mock-task" type="button" aria-pressed="false">Ler e anotar sobre UX</button>
-                  </div>
-                </div>
-                <!-- mock-insight removed per request: Insight da semana card deleted -->
-              </div>
-              <p class="sr-only" id="mockTaskStatus" aria-live="polite"></p>
+          <div class="feature-video-slot" aria-label="Espaço reservado para o vídeo de apresentação">
+            <div class="feature-video-slot__glow" aria-hidden="true"></div>
+            <div class="feature-video-slot__content">
+              <span class="feature-video-slot__icon" aria-hidden="true"><i class="ph ph-play"></i></span>
+              <p>Vídeo da experiência</p>
+              <small>Em breve</small>
             </div>
-            <aside class="evolution-map" aria-label="Mapa de evolução do FocusFlow">
-              <div class="evolution-map__head">
-                <p><span class="spark">✦</span> Mapa de evolução</p>
-                <span id="evolutionDay">Quinta · 80%</span>
-              </div>
-              <div class="evolution-route" aria-hidden="true">
-                <span class="route-line"></span>
-                <span class="route-pulse"></span>
-                <div class="route-node route-node--focus"><i class="ph ph-crosshair"></i><b>Foco</b><small
-                    id="evolutionFocus">80%</small></div>
-                <div class="route-node route-node--consistency"><i
-                    class="ph ph-lightning"></i><b>Consistência</b><small>4 dias</small></div>
-                <div class="route-node route-node--growth"><i class="ph ph-trend-up"></i><b>Evolução</b><small
-                    id="evolutionGrowth">+12%</small></div>
-              </div>
-              <p class="evolution-message" id="evolutionMessage">Seu ritmo está ganhando força. Continue avançando um
-                marco por vez.</p>
-            </aside>
           </div>
         </article>
       </div>
