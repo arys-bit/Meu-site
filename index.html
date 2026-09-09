@@ -93,7 +93,6 @@
         <circle class="bokeh" cx="1300" cy="150" r="140" fill="url(#bokehGrad)" filter="url(#softBlur)" />
         <circle class="bokeh" cx="120" cy="760" r="170" fill="url(#bokehGrad)" filter="url(#softBlur)" />
         <circle class="bokeh" cx="980" cy="820" r="110" fill="url(#bokehGrad)" filter="url(#softBlur)" />
-        <path class="orbit" d="M -100 760 C 350 560, 750 980, 1700 340" />
       </svg>
 
       <a href="#inicio" class="logo hero-logo" aria-label="AryLab Studio, ir para o início">
@@ -127,8 +126,11 @@
 
         <figure class="hero-graph hero-workspace" aria-label="Estação de trabalho digital da AryLab Studio">
           <span class="hero-workspace__halo" aria-hidden="true"></span>
-          <img src="assets/hero-workspace.webp"
-            alt="Mesa de trabalho futurista com computador e interfaces digitais em tons de roxo">
+          <video class="hero-workspace__media" autoplay muted loop playsinline preload="metadata"
+            poster="assets/hero-workspace.webp"
+            aria-label="Mesa de trabalho futurista com computador e interfaces digitais em tons de roxo">
+            <source src="assets/hero-workspace-motion.mp4" type="video/mp4">
+          </video>
           <span class="hero-workspace__shine" aria-hidden="true"></span>
         </figure>
       </div>
@@ -180,27 +182,32 @@
         </ol>
 
         <article class="feature-card">
-          <p class="feature-kicker">Projeto em destaque</p>
-          <h3 class="feature-title">FocusFlow <span class="spark">✦</span></h3>
-          <p class="feature-text">Meu primeiro app completo. O ponto de partida que me ensinou disciplina, lógica e
-            empatia com o usuário.</p>
+          <p class="feature-kicker">Experiência digital em destaque</p>
+          <h3 class="feature-title">Ideias que ganham movimento <span class="spark">✦</span></h3>
+          <p class="feature-text">Unimos desenvolvimento, direção criativa e inteligência artificial para transformar
+            a sua ideia em uma experiência digital marcante.</p>
           <ul class="feature-list">
-            <li>Planejamento de tarefas com foco e clareza</li>
-            <li>Hábitos que constroem consistência</li>
-            <li>Insights que geram evolução real</li>
+            <li>Sites e landing pages com identidade própria</li>
+            <li>Animações que tornam a navegação memorável</li>
+            <li>Soluções digitais pensadas para o seu negócio</li>
           </ul>
           <div class="feature-tags">
-            <span>React</span><span>TypeScript</span><span>Styled Components</span>
+            <span>Desenvolvimento web</span><span>Animação</span><span>Inteligência artificial</span>
           </div>
-          <a href="#projetos" class="btn btn-primary btn-sm">Ver projeto completo ↗</a>
+          <a href="#contato" class="btn btn-primary btn-sm">Quero criar meu projeto ↗</a>
 
-          <div class="feature-video-slot" aria-label="Espaço reservado para o vídeo de apresentação">
+          <div class="feature-video-slot feature-video-slot--ready">
             <div class="feature-video-slot__glow" aria-hidden="true"></div>
-            <div class="feature-video-slot__content">
-              <span class="feature-video-slot__icon" aria-hidden="true"><i class="ph ph-play"></i></span>
-              <p>Vídeo da experiência</p>
-              <small>Em breve</small>
-            </div>
+            <video id="experienceVideo" autoplay muted loop playsinline controls controlslist="nodownload noplaybackrate"
+              preload="metadata" poster="assets/video-experiencia-poster.webp"
+              aria-label="Apresentação em vídeo da experiência digital AryLab">
+              <source src="assets/video-experiencia.mp4" type="video/mp4">
+              Seu navegador não consegue reproduzir este vídeo.
+            </video>
+            <button class="feature-video-sound" id="experienceVideoSound" type="button" aria-pressed="false"
+              aria-label="Ativar som do vídeo">
+              <i class="ph ph-speaker-slash" aria-hidden="true"></i><span>Ativar som</span>
+            </button>
           </div>
         </article>
       </div>
@@ -284,7 +291,7 @@
         <button type="button" class="project-modal__close" aria-label="Fechar projeto"><i class="ph ph-x"
             aria-hidden="true"></i></button>
         <div class="project-modal__visual is-loading"><span class="project-loader" aria-hidden="true"><i
-              class="ph ph-sparkle"></i></span><img id="projectModalImage" src="" alt=""></div>
+              class="ph ph-sparkle"></i></span><img id="projectModalImage" alt=""></div>
         <div class="project-modal__content">
           <p class="project-kicker" id="projectModalKicker"></p>
           <h2 id="projectModalTitle"></h2>
@@ -380,58 +387,29 @@
         <p class="section-lede">Projetos construídos com atenção, clareza e propósito.</p>
       </div>
 
-      <p class="testimonials-demo-note">✦ Depoimentos demonstrativos — em breve, avaliações reais de clientes.</p>
-
       <div class="testimonial-grid" role="region" aria-label="Depoimentos de clientes, deslize para ver mais" tabindex="0">
         <article class="testimonial-card">
-          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
           <div class="testimonial-head">
-            <img class="testimonial-avatar" src="assets/testimonials/juliana-mendes.webp"
-              alt="Retrato de Juliana Mendes, personagem demonstrativa" loading="lazy" width="64" height="64">
+            <span class="testimonial-avatar testimonial-avatar--alicia" aria-hidden="true">
+              <img src="assets/testimonials/alicia-avaliacao.png" alt="">
+            </span>
             <div>
-              <p class="testimonial-name">Juliana Mendes</p>
-              <p class="testimonial-role">Landing Page para beleza</p>
+              <p class="testimonial-name">Alicia Braids</p>
             </div>
           </div>
-          <div class="testimonial-stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">
-            <span aria-hidden="true">★★★★★</span>
-          </div>
-          <p class="testimonial-quote">A Ary entendeu a identidade do meu negócio e transformou minhas ideias em uma
-            página clara, bonita e profissional.</p>
+          <p class="testimonial-quote">“Trabalho excelente 🙏🏽”</p>
         </article>
 
         <article class="testimonial-card">
-          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
           <div class="testimonial-head">
-            <img class="testimonial-avatar" src="assets/testimonials/camila-rocha.webp"
-              alt="Retrato de Camila Rocha, personagem demonstrativa" loading="lazy" width="64" height="64">
+            <span class="testimonial-avatar testimonial-avatar--pequenos" aria-hidden="true">
+              <img src="assets/testimonials/pequenos-de-fe-avaliacao.png" alt="">
+            </span>
             <div>
-              <p class="testimonial-name">Camila Rocha</p>
-              <p class="testimonial-role">Site para pequeno negócio</p>
+              <p class="testimonial-name">Pequenos de Fé</p>
             </div>
           </div>
-          <div class="testimonial-stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">
-            <span aria-hidden="true">★★★★★</span>
-          </div>
-          <p class="testimonial-quote">O processo foi organizado e fácil de acompanhar. O resultado ficou moderno e
-            funciona muito bem no celular.</p>
-        </article>
-
-        <article class="testimonial-card">
-          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <div class="testimonial-head">
-            <img class="testimonial-avatar" src="assets/testimonials/rafael-santos.webp"
-              alt="Retrato de Rafael Santos, personagem demonstrativo" loading="lazy" width="64" height="64">
-            <div>
-              <p class="testimonial-name">Rafael Santos</p>
-              <p class="testimonial-role">Sistema personalizado</p>
-            </div>
-          </div>
-          <div class="testimonial-stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">
-            <span aria-hidden="true">★★★★★</span>
-          </div>
-          <p class="testimonial-quote">Recebi uma solução intuitiva, bem planejada e preparada para facilitar a
-            rotina do meu negócio.</p>
+          <p class="testimonial-quote">“Grata, Ary! Seu trabalho é incrível, eu amei. Ficou como eu pedi. ❤️👏 Deus abençoe você. 👍🏽”</p>
         </article>
       </div>
     </section>
@@ -442,7 +420,12 @@
       <p class="section-lede">Vamos criar algo que faça sentido para as pessoas e gere resultados para o seu negócio.
       </p>
       <div class="hero-actions">
-        <a href="#contato" class="btn btn-primary">Falar sobre um projeto ↗</a>
+        <a href="https://wa.me/5515988143127?text=Ol%C3%A1%2C%20Ary!%20Conheci%20seu%20trabalho%20pelo%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+          class="btn btn-primary cta-whatsapp" target="_blank" rel="noopener noreferrer"
+          aria-label="Conversar com Ary pelo WhatsApp">
+          <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
+          <span>Falar pelo WhatsApp</span>
+        </a>
         <a href="assets/curriculo-ary.pdf" class="btn btn-ghost" download>Baixar currículo ↓</a>
       </div>
     </section>

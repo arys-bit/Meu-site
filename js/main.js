@@ -186,6 +186,23 @@
     });
   }
 
+  const experienceVideo = document.getElementById('experienceVideo');
+  const experienceVideoSound = document.getElementById('experienceVideoSound');
+  if (experienceVideo) {
+    const startExperienceVideo = () => experienceVideo.play().catch(() => {});
+    if (experienceVideo.readyState >= 2) startExperienceVideo();
+    else experienceVideo.addEventListener('canplay', startExperienceVideo, { once: true });
+  }
+  experienceVideoSound?.addEventListener('click', () => {
+    if (!experienceVideo) return;
+    experienceVideo.muted = !experienceVideo.muted;
+    experienceVideoSound.setAttribute('aria-pressed', String(!experienceVideo.muted));
+    experienceVideoSound.setAttribute('aria-label', experienceVideo.muted ? 'Ativar som do vídeo' : 'Desativar som do vídeo');
+    experienceVideoSound.querySelector('i').className = experienceVideo.muted ? 'ph ph-speaker-slash' : 'ph ph-speaker-high';
+    experienceVideoSound.querySelector('span').textContent = experienceVideo.muted ? 'Ativar som' : 'Desativar som';
+    if (experienceVideo.paused) experienceVideo.play().catch(() => {});
+  });
+
   /* Seed visible dust even when the GSAP CDN is unavailable. */
   function seedStaticCometDust() {
     const cometPath = document.querySelector('.constellation .comet');
@@ -571,9 +588,11 @@
     gsap.to('.hero-orbits .bokeh', {
       y: '+=16', duration: 9, ease: 'sine.inOut', repeat: -1, yoyo: true, stagger: 1.6,
     });
-    gsap.to('.hero-orbits .orbit', {
-      opacity: '+=0.06', duration: 7, ease: 'sine.inOut', repeat: -1, yoyo: true, stagger: 2,
-    });
+    if (document.querySelector('.hero-orbits .orbit')) {
+      gsap.to('.hero-orbits .orbit', {
+        opacity: '+=0.06', duration: 7, ease: 'sine.inOut', repeat: -1, yoyo: true, stagger: 2,
+      });
+    }
 
     /* Scroll reveals: distances/durations scale down on narrow viewports so
        motion stays subtle on mobile instead of shifting layout dramatically. */
@@ -618,6 +637,16 @@
         gsap.from('.portrait-frame', {
           opacity: 0, scale: isMobile ? 0.92 : 0.8, duration: t(0.8), ease: 'back.out(1.6)',
           scrollTrigger: { trigger: '.about', start: 'top 78%' },
+        });
+
+        gsap.from('.about-facts > div', {
+          opacity: 0,
+          y: d(24),
+          scale: isMobile ? 0.98 : 0.9,
+          duration: t(0.65),
+          ease: 'back.out(1.45)',
+          stagger: 0.14,
+          scrollTrigger: { trigger: '.about-facts', start: 'top 88%' },
         });
 
         /* Projects surging in on scroll */
