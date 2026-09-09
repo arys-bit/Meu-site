@@ -426,6 +426,20 @@ main { padding-left: calc(var(--nav-w) + var(--side-pad)); padding-right: var(--
   border-color: rgba(196,163,255,.16);
 }
 
+.feature-video-slot__title {
+  grid-column: 1 / -1;
+  margin: 34px 0 -6px;
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: var(--white);
+  text-align: center;
+}
+.feature-video-slot__cta {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 22px;
+}
+
 .quote-card {
   margin: 70px 0 0; padding: clamp(28px, 4vw, 44px); border-radius: 20px;
   background: var(--card); border: 1px solid var(--card-border);

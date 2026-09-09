@@ -198,9 +198,9 @@
     });
   }
 
-  /* The experience video is click-to-play (no autoplay/muted/loop): the
-     native <video controls> element handles play/pause/volume/replay on its
-     own, so no JS is needed here. */
+  /* The ad video is click-to-play (no autoplay/muted/loop): native
+     <video controls> handles play/pause/volume/replay on its own, so no JS
+     is needed here. */
 
   /* ============ Tech facades: staggered activation on scroll ============ */
   const techNodes = document.querySelectorAll('.tech-node');
@@ -451,9 +451,17 @@
           opacity: 0, y: d(40), duration: t(0.9), ease: 'power2.out',
           scrollTrigger: { trigger: '.feature-card', start: 'top 80%' },
         });
-        gsap.from('.feature-video-slot', {
-          opacity: 0, y: d(30), duration: t(1), ease: 'power2.out',
-          scrollTrigger: { trigger: '.feature-video-slot', start: 'top 82%' },
+        gsap.utils.toArray('.feature-video-slot').forEach((slot) => {
+          gsap.from(slot, {
+            opacity: 0, y: d(30), duration: t(1), ease: 'power2.out',
+            scrollTrigger: { trigger: slot, start: 'top 85%' },
+          });
+        });
+        gsap.utils.toArray('.feature-video-slot__title, .feature-video-slot__cta').forEach((el) => {
+          gsap.from(el, {
+            opacity: 0, y: d(16), duration: t(0.6), ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 88%' },
+          });
         });
         gsap.from('.quote-card', {
           opacity: 0, y: d(30), duration: t(0.8), ease: 'power2.out',
@@ -518,7 +526,7 @@
       }
     );
   } else {
-    document.querySelectorAll('.section-head, .feature-card, .quote-card, .solution-card, .project-card, .biz-window').forEach((el) => {
+    document.querySelectorAll('.section-head, .feature-card, .quote-card, .solution-card, .project-card, .biz-window, .feature-video-slot, .feature-video-slot__title, .feature-video-slot__cta').forEach((el) => {
       el.style.opacity = 1;
     });
   }
