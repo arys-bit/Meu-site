@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ary Labs Studio — Sites, Sistemas e Experiências Digitais</title>
+  <meta name="description"
+    content="Portfólio de Ary — desenvolvedora Full Stack e criadora de sistemas, sites e experiências digitais.">
+  <meta name="theme-color" content="#060309">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="vendor/phosphor/style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
+
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <canvas id="cursor-trail" aria-hidden="true"></canvas>
+
+  <nav class="side-nav" aria-label="Navegação principal">
+    <ul class="nav-list">
+      <li>
+        <a href="#inicio" class="nav-item is-active" data-label="Início" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 11.5 12 4l8 7.5M6 10v9h5v-5h2v5h5v-9" />
+          </svg>
+          <span class="nav-tip">Início</span>
+        </a>
+      </li>
+      <li>
+        <a href="#jornada" class="nav-item" data-label="Jornada">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3 L13.6 9.6 L20 12 L13.6 14.4 L12 21 L10.4 14.4 L4 12 L10.4 9.6 Z" />
+          </svg>
+          <span class="nav-tip">Jornada</span>
+        </a>
+      </li>
+      <li>
+        <a href="#projetos" class="nav-item" data-label="Projetos">
+          <span class="nav-code" aria-hidden="true">&lt;/&gt;</span>
+          <span class="nav-tip">Projetos</span>
+        </a>
+      </li>
+      <li>
+        <a href="#laboratorio" class="nav-item" data-label="Demonstração">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2c2.5 2 4 5.2 4 8.5 0 2-.6 3.6-1.3 5L15 20h-6l.3-4.5c-.7-1.4-1.3-3-1.3-5C8 7.2 9.5 4 12 2Z" />
+            <circle cx="12" cy="10" r="1.6" />
+            <path d="M9.5 20 8 22h8l-1.5-2" />
+          </svg>
+          <span class="nav-tip">Demonstração</span>
+        </a>
+      </li>
+      <li>
+        <a href="#contato" class="nav-item" data-label="Contato">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3.5" y="5.5" width="17" height="13" rx="1.6" />
+            <path d="M4.5 7 12 12.5 19.5 7" />
+          </svg>
+          <span class="nav-tip">Contato</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="side-nav-mobile"
+    aria-label="Abrir menu de navegação">
+    <span></span><span></span><span></span>
+  </button>
+
+  <main id="main-content">
+
+    <!-- ========== INÍCIO / APRESENTAÇÃO + CONSTELAÇÃO DE HABILIDADES ========== -->
+    <section id="inicio" class="section hero">
+      <canvas id="hero-cosmos" aria-hidden="true"></canvas>
+      <svg class="hero-orbits" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <radialGradient id="bokehGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#9b6bff" stop-opacity="0.4" />
+            <stop offset="100%" stop-color="#9b6bff" stop-opacity="0" />
+          </radialGradient>
+          <filter id="softBlur" filterUnits="userSpaceOnUse" x="-300" y="-300" width="2200" height="1400">
+            <feGaussianBlur stdDeviation="22" />
+          </filter>
+        </defs>
+        <circle class="bokeh" cx="1300" cy="150" r="140" fill="url(#bokehGrad)" filter="url(#softBlur)" />
+        <circle class="bokeh" cx="120" cy="760" r="170" fill="url(#bokehGrad)" filter="url(#softBlur)" />
+        <circle class="bokeh" cx="980" cy="820" r="110" fill="url(#bokehGrad)" filter="url(#softBlur)" />
+      </svg>
+
+      <a href="#inicio" class="logo hero-logo" aria-label="Ary Labs Studio, ir para o início">
+        <span class="logo-word">
+          <span class="logo-ary">Ary</span>
+          <svg class="logo-star" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" />
+          </svg>
+          <span class="logo-lab">Labs</span>
+        </span>
+        <span class="logo-sub">S T U D I O</span>
+      </a>
+
+      <div class="hero-row">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="spark">✦</span> Desenvolvedora Full Stack · Criadora de sistemas</p>
+          <h1 class="hero-title">
+            Cada projeto acendeu<br>
+            uma <em>nova habilidade.</em>
+          </h1>
+          <p class="hero-text">Crio sites, landing pages e sistemas personalizados que transformam ideias em
+            experiências úteis, bonitas e fáceis de usar.</p>
+          <div class="hero-actions">
+            <a href="#jornada" class="btn btn-primary">Começar a jornada <span aria-hidden="true">↗</span></a>
+            <a href="assets/curriculo-ary.pdf" class="btn btn-ghost" download>Baixar currículo <span
+                aria-hidden="true">↓</span></a>
+          </div>
+          <p class="hero-status"><span class="status-dot" aria-hidden="true"></span> Disponível para projetos <span
+              class="hero-date">— agosto de 2026</span></p>
+        </div>
+
+        <figure class="hero-graph hero-workspace" aria-label="Estação de trabalho digital da Ary Labs Studio">
+          <span class="hero-workspace__halo" aria-hidden="true"></span>
+          <video class="hero-workspace__media" autoplay muted loop playsinline preload="metadata"
+            poster="assets/hero-workspace.webp"
+            aria-label="Mesa de trabalho futurista com computador e interfaces digitais em tons de roxo">
+            <source src="assets/hero-workspace-motion.mp4" type="video/mp4">
+          </video>
+          <span class="hero-workspace__shine" aria-hidden="true"></span>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========== MINHA JORNADA ========== -->
+    <section id="jornada" class="section journey">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="spark">✦</span> Minha Jornada</p>
+          <h2 class="section-title">Do primeiro clique<br>ao impacto real.</h2>
+        </div>
+        <p class="section-lede">Cada etapa me ensinou algo novo. Cada projeto me tornou quem sou hoje: curiosa,
+          resiliente e apaixonada por criar.</p>
+      </div>
+
+      <div class="journey-grid">
+        <ol class="timeline">
+          <li class="timeline-item is-active">
+            <span class="timeline-dot"></span>
+            <h3>Primeiro app</h3>
+            <p>Um app simples para organizar ideias e aprender na prática.</p>
+            <a href="#projetos" class="link-arrow">Explorar ↗</a>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3>Landing pages</h3>
+            <p>Páginas que comunicam valor e geram resultados.</p>
+            <a href="#projetos" class="link-arrow">Explorar ↗</a>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3>Interfaces interativas</h3>
+            <p>Interações que tornam a experiência memorável.</p>
+            <a href="#projetos" class="link-arrow">Explorar ↗</a>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3>Plataformas completas</h3>
+            <p>Soluções robustas com foco em performance e escala.</p>
+            <a href="#projetos" class="link-arrow">Explorar ↗</a>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3>Próximo capítulo</h3>
+            <p>Novas tecnologias, novas histórias para construir juntas.</p>
+            <a href="#contato" class="link-arrow">O que vem por aí ↗</a>
+          </li>
+        </ol>
+
+        <article class="feature-card">
+          <p class="feature-kicker">Experiência digital em destaque</p>
+          <h3 class="feature-title">Ideias que ganham movimento <span class="spark">✦</span></h3>
+          <p class="feature-text">Unimos desenvolvimento, direção criativa e inteligência artificial para transformar
+            a sua ideia em uma experiência digital marcante.</p>
+          <ul class="feature-list">
+            <li>Sites e landing pages com identidade própria</li>
+            <li>Animações que tornam a navegação memorável</li>
+            <li>Soluções digitais pensadas para o seu negócio</li>
+          </ul>
+          <div class="feature-tags">
+            <span>Desenvolvimento web</span><span>Animação</span><span>Inteligência artificial</span>
+          </div>
+          <a href="#contato" class="btn btn-primary btn-sm">Quero criar meu projeto ↗</a>
+
+          <div class="feature-video-slot feature-video-slot--ready">
+            <div class="feature-video-slot__glow" aria-hidden="true"></div>
+            <video controls playsinline preload="metadata" poster="assets/video-experiencia-poster.webp"
+              aria-label="Apresentação em vídeo da experiência digital Ary Labs">
+              <source src="assets/video-experiencia.mp4" type="video/mp4">
+              Seu navegador não consegue reproduzir este vídeo.
+            </video>
+          </div>
+        </article>
+      </div>
+
+      <blockquote class="quote-card">
+        <p class="quote-main">Não é sobre linhas de código.<br>É sobre resolver problemas reais com beleza, simplicidade
+          e propósito.</p>
+        <p class="quote-side">Código é a ferramenta.<br>Impacto é o destino.<br>Pessoas são o motivo.</p>
+      </blockquote>
+    </section>
+
+    <!-- ========== SOBRE MIM ========== -->
+    <section id="sobre" class="section about">
+      <div class="about-portrait">
+        <div class="portrait-frame">
+          <img class="portrait-photo" src="assets/ary-profile.webp"
+            alt="Retrato profissional de Ary, fundadora da Ary Labs Studio">
+        </div>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow"><span class="spark">✦</span> Sobre mim</p>
+        <h2 class="section-title">Curiosidade que virou profissão.</h2>
+        <p class="section-lede">Sou a Ary, fundadora da Ary Labs Studio, desenvolvedora Full Stack e criadora de sistemas.
+          Construo sites, landing pages e soluções digitais que unem estética, performance e propósito.</p>
+        <p class="about-text">Acredito em código bem pensado, decisões de design com intenção e em produtos que
+          respeitam quem os usa. Fora do teclado, colecionar referências visuais e observar constelações é o que mais me
+          inspira a criar.</p>
+        <div class="about-facts">
+          <div><strong>+3</strong><span>anos criando na web</span></div>
+          <div><strong>15+</strong><span>projetos entregues</span></div>
+          <div><strong>100%</strong><span>foco em experiência</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SOLUÇÕES DIGITAIS ========== -->
+    <section id="solucoes" class="section solutions">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="spark">✦</span> Soluções digitais</p>
+          <h2 class="section-title">O que posso criar<br>para o seu negócio.</h2>
+        </div>
+        <p class="section-lede">Quatro caminhos claros para transformar a sua ideia em uma presença digital que gera
+          resultado — do primeiro contato até a venda.</p>
+      </div>
+
+      <div class="solution-grid">
+        <article class="solution-card" data-tilt>
+          <span class="solution-card__glow" aria-hidden="true"></span>
+          <span class="solution-card__icon"><i class="ph ph-rocket-launch" aria-hidden="true"></i></span>
+          <p class="solution-card__kicker">01</p>
+          <h3>Landing pages</h3>
+          <p class="solution-card__text">Páginas estratégicas para apresentar serviços, campanhas ou produtos e
+            direcionar o visitante para uma ação, como solicitar orçamento, comprar ou chamar no WhatsApp.</p>
+          <p class="solution-card__benefit"><i class="ph ph-check-circle" aria-hidden="true"></i> Mais contatos e
+            pedidos de orçamento, com foco total em conversão.</p>
+          <a class="btn btn-ghost btn-sm solution-card__cta"
+            href="https://wa.me/5515988143127?text=Ol%C3%A1%2C%20Ary!%20Quero%20um%20or%C3%A7amento%20para%20uma%20landing%20page."
+            target="_blank" rel="noopener noreferrer">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="solution-card" data-tilt>
+          <span class="solution-card__glow" aria-hidden="true"></span>
+          <span class="solution-card__icon"><i class="ph ph-browsers" aria-hidden="true"></i></span>
+          <p class="solution-card__kicker">02</p>
+          <h3>Sites profissionais</h3>
+          <p class="solution-card__text">Sites completos para fortalecer a presença digital, transmitir confiança e
+            apresentar a empresa de maneira profissional em todos os dispositivos.</p>
+          <p class="solution-card__benefit"><i class="ph ph-check-circle" aria-hidden="true"></i> Credibilidade
+            imediata para quem pesquisa sobre o seu negócio.</p>
+          <a class="btn btn-ghost btn-sm solution-card__cta"
+            href="https://wa.me/5515988143127?text=Ol%C3%A1%2C%20Ary!%20Quero%20um%20or%C3%A7amento%20para%20um%20site%20profissional."
+            target="_blank" rel="noopener noreferrer">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="solution-card" data-tilt>
+          <span class="solution-card__glow" aria-hidden="true"></span>
+          <span class="solution-card__icon"><i class="ph ph-gear-six" aria-hidden="true"></i></span>
+          <p class="solution-card__kicker">03</p>
+          <h3>Sistemas personalizados</h3>
+          <p class="solution-card__text">Soluções criadas para organizar processos, clientes, pedidos, agendamentos,
+            informações e atividades do seu negócio em um só lugar.</p>
+          <p class="solution-card__benefit"><i class="ph ph-check-circle" aria-hidden="true"></i> Menos retrabalho e
+            mais controle sobre a rotina do negócio.</p>
+          <a class="btn btn-ghost btn-sm solution-card__cta"
+            href="https://wa.me/5515988143127?text=Ol%C3%A1%2C%20Ary!%20Quero%20um%20or%C3%A7amento%20para%20um%20sistema%20personalizado."
+            target="_blank" rel="noopener noreferrer">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="solution-card" data-tilt>
+          <span class="solution-card__glow" aria-hidden="true"></span>
+          <span class="solution-card__icon"><i class="ph ph-storefront" aria-hidden="true"></i></span>
+          <p class="solution-card__kicker">04</p>
+          <h3>Lojas e vitrines digitais</h3>
+          <p class="solution-card__text">Experiências para apresentar produtos, facilitar a escolha do cliente e
+            direcionar para a compra ou atendimento pelo WhatsApp.</p>
+          <p class="solution-card__benefit"><i class="ph ph-check-circle" aria-hidden="true"></i> Catálogo claro que
+            facilita a decisão de compra do cliente.</p>
+          <a class="btn btn-ghost btn-sm solution-card__cta"
+            href="https://wa.me/5515988143127?text=Ol%C3%A1%2C%20Ary!%20Quero%20um%20or%C3%A7amento%20para%20uma%20loja%2Fvitrine%20digital."
+            target="_blank" rel="noopener noreferrer">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== PROJETOS ========== -->
+    <section id="projetos" class="section projects">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="spark">✦</span> Projetos</p>
+          <h2 class="section-title">Ideias que ganharam forma.</h2>
+        </div>
+        <p class="section-lede">Uma seleção de sistemas, sites e experiências digitais criados para transformar
+          necessidades reais em soluções.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card" data-project="trancapro">
+          <p class="project-kicker">01 · Sistema de gestão</p>
+          <h3>TrançaPro</h3>
+          <p>Sistema completo para agenda, clientes, financeiro, estoque e relatórios de trancistas.</p>
+          <div class="feature-tags"><span>Dashboard</span><span>Responsivo</span></div>
+          <button type="button" class="link-arrow project-open" data-project="trancapro">Ver projeto ↗</button>
+        </article>
+        <article class="project-card" data-project="beautyloja">
+          <p class="project-kicker">02 · Landing page</p>
+          <h3>Beauty Loja</h3>
+          <p>Site elegante para salão de beleza com serviços, avaliações, contato e agendamento.</p>
+          <div class="feature-tags"><span>HTML</span><span>CSS</span></div>
+          <button type="button" class="link-arrow project-open" data-project="beautyloja">Ver projeto ↗</button>
+        </article>
+        <article class="project-card" data-project="aliciabraids">
+          <p class="project-kicker">03 · Site comercial</p>
+          <h3>Alicia Braids</h3>
+          <p>Experiência visual vibrante para apresentar serviços, trabalhos, cursos e agendamentos.</p>
+          <div class="feature-tags"><span>Landing page</span><span>Mobile</span></div>
+          <button type="button" class="link-arrow project-open" data-project="aliciabraids">Ver projeto ↗</button>
+        </article>
+        <article class="project-card project-card--featured" data-project="novacheck">
+          <p class="project-kicker">04 · Sistema de Self-Checkout</p>
+          <h3>Nova Check</h3>
+          <p>Terminal de autoatendimento para escanear produtos, revisar a compra e seguir para o pagamento.</p>
+          <div class="feature-tags"><span>Self-checkout</span><span>Acessibilidade</span></div>
+          <button type="button" class="link-arrow project-open" data-project="novacheck">Ver projeto ↗</button>
+        </article>
+      </div>
+    </section>
+
+    <dialog class="project-modal" id="projectModal" aria-labelledby="projectModalTitle">
+      <div class="project-modal__shell">
+        <button type="button" class="project-modal__close" aria-label="Fechar projeto"><i class="ph ph-x"
+            aria-hidden="true"></i></button>
+        <div class="project-modal__visual is-loading"><span class="project-loader" aria-hidden="true"><i
+              class="ph ph-sparkle"></i></span><img id="projectModalImage" alt=""></div>
+        <div class="project-modal__content">
+          <p class="project-kicker" id="projectModalKicker"></p>
+          <h2 id="projectModalTitle"></h2>
+          <p id="projectModalDescription"></p>
+          <div class="project-modal__details">
+            <div><span>Solução</span><strong id="projectModalSolution"></strong></div>
+            <div><span>Foco</span><strong id="projectModalFocus"></strong></div>
+          </div>
+          <div class="feature-tags" id="projectModalTags"></div>
+          <p class="project-modal__note">Projeto apresentado como parte do portfólio Ary Labs Studio.</p>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- ========== TECNOLOGIAS ========== -->
+    <section id="tecnologias" class="section tech">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="spark">✦</span> Tecnologias</p>
+          <h2 class="section-title">Minhas ferramentas de criação.</h2>
+        </div>
+        <p class="section-lede">O que uso no dia a dia para transformar ideias em interfaces reais.</p>
+      </div>
+      <ul class="tech-grid">
+        <li class="tech-node" style="--i:0"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-file-html" aria-hidden="true"></i><span>HTML5</span></li>
+        <li class="tech-node" style="--i:1"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-file-css" aria-hidden="true"></i><span>CSS3</span></li>
+        <li class="tech-node" style="--i:2"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-lightning" aria-hidden="true"></i><span>JavaScript</span></li>
+        <li class="tech-node" style="--i:3"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-code-block" aria-hidden="true"></i><span>TypeScript</span></li>
+        <li class="tech-node" style="--i:4"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-atom" aria-hidden="true"></i><span>React</span></li>
+        <li class="tech-node" style="--i:5"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-terminal-window" aria-hidden="true"></i><span>Next.js</span></li>
+        <li class="tech-node" style="--i:6"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-sparkle" aria-hidden="true"></i><span>GSAP</span></li>
+        <li class="tech-node" style="--i:7"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-figma-logo" aria-hidden="true"></i><span>Figma</span></li>
+        <li class="tech-node" style="--i:8"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-terminal" aria-hidden="true"></i><span>Node.js</span></li>
+        <li class="tech-node" style="--i:9"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-git-branch" aria-hidden="true"></i><span>Git</span></li>
+        <li class="tech-node" style="--i:10"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-wind" aria-hidden="true"></i><span>Tailwind</span></li>
+        <li class="tech-node" style="--i:11"><span class="tech-node__glow" aria-hidden="true"></span><i class="ph ph-palette" aria-hidden="true"></i><span>Styled Components</span></li>
+      </ul>
+    </section>
+
+    <!-- ========== SOLUÇÕES PARA O SEU NEGÓCIO ========== -->
+    <section id="laboratorio" class="section lab">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="spark">✦</span> Soluções para o seu negócio</p>
+          <h2 class="section-title">Tecnologia que transforma<br>desafios em resultados.</h2>
+        </div>
+        <p class="section-lede">Escolha uma opção e veja, na prática, o que ela pode fazer pelo seu negócio.</p>
+      </div>
+
+      <div class="biz-window">
+        <div class="biz-tabs" role="tablist" aria-label="Escolha uma solução para explorar">
+          <button type="button" class="biz-option is-active" data-biz="landing" role="tab" aria-selected="true"
+            aria-controls="bizPanel" tabindex="0">
+            <i class="ph ph-rocket-launch" aria-hidden="true"></i>
+            <span><strong>Landing page</strong><small>Clareza que converte</small></span>
+          </button>
+          <button type="button" class="biz-option" data-biz="system" role="tab" aria-selected="false"
+            aria-controls="bizPanel" tabindex="-1">
+            <i class="ph ph-gear-six" aria-hidden="true"></i>
+            <span><strong>Sistema personalizado</strong><small>Organização e controle</small></span>
+          </button>
+        </div>
+
+        <div class="biz-panel is-changing" id="bizPanel" role="tabpanel">
+          <div class="biz-panel__copy">
+            <div class="biz-panel__head">
+              <span class="biz-panel__icon"><i class="ph ph-rocket-launch" id="bizIcon" aria-hidden="true"></i></span>
+              <h3 id="bizTitle">Landing page</h3>
+            </div>
+            <ul class="biz-benefits" id="bizBenefits" aria-live="polite"></ul>
+          </div>
+          <div class="biz-visual">
+            <span class="biz-visual__glow" aria-hidden="true"></span>
+            <span class="biz-visual__loader" aria-hidden="true"><i class="ph ph-sparkle"></i></span>
+            <img id="bizImage" src="assets/projects/beauty-loja.webp"
+              alt="Prévia real de uma landing page criada pela Ary Labs Studio">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DEPOIMENTOS ========== -->
+    <section id="depoimentos" class="section testimonials" aria-labelledby="depoimentosTitle">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="spark">✦</span> Depoimentos</p>
+          <h2 class="section-title" id="depoimentosTitle">Experiências que viraram confiança.</h2>
+        </div>
+        <p class="section-lede">Projetos construídos com atenção, clareza e propósito.</p>
+      </div>
+
+      <div class="testimonial-grid" role="region" aria-label="Depoimentos de clientes, deslize para ver mais" tabindex="0">
+        <article class="testimonial-card">
+          <div class="testimonial-head">
+            <span class="testimonial-avatar testimonial-avatar--alicia" aria-hidden="true">
+              <img src="assets/testimonials/alicia-avaliacao.png" alt="">
+            </span>
+            <div>
+              <p class="testimonial-name">Alicia Braids</p>
+            </div>
+          </div>
+          <p class="testimonial-quote">“Trabalho excelente 🙏🏽”</p>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-head">
+            <span class="testimonial-avatar testimonial-avatar--pequenos" aria-hidden="true">
+              <img src="assets/testimonials/pequenos-de-fe-avaliacao.png" alt="">
+            </span>
+            <div>
+              <p class="testimonial-name">Pequenos de Fé</p>
+            </div>
+          </div>
+          <p class="testimonial-quote">“Grata, Ary! Seu trabalho é incrível, eu amei. Ficou como eu pedi. ❤️👏 Deus abençoe você. 👍🏽”</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="section cta">
+      <h2 class="section-title">Pronta para o próximo projeto<br><em>incrível?</em></h2>
+      <p class="section-lede">Vamos criar algo que faça sentido para as pessoas e gere resultados para o seu negócio.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5515988143127?text=Ol%C3%A1%2C%20Ary!%20Conheci%20seu%20trabalho%20pelo%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+          class="btn btn-primary cta-whatsapp" target="_blank" rel="noopener noreferrer"
+          aria-label="Conversar com Ary pelo WhatsApp">
+          <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
+          <span>Falar pelo WhatsApp</span>
+        </a>
+        <a href="assets/curriculo-ary.pdf" class="btn btn-ghost" download>Baixar currículo ↓</a>
+      </div>
+    </section>
+
+    <!-- ========== CONTATO ========== -->
+    <section id="contato" class="section contact">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="spark">✦</span> Contato</p>
+          <h2 class="section-title">Pronto para transformar sua<br>ideia em realidade?</h2>
+        </div>
+        <p class="section-lede">Conte o que seu negócio precisa e vamos desenvolver uma solução digital
+          personalizada para alcançar seus objetivos.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-panel">
+          <h3 class="contact-panel__title">Fale comigo agora mesmo</h3>
+          <p class="contact-panel__text">Fale comigo pelo WhatsApp e conte um pouco sobre o projeto que você deseja
+            criar.</p>
+          <div class="contact-panel__actions">
+            <a class="btn btn-whatsapp"
+              href="https://wa.me/5515988143127?text=Ol%C3%A1%2C%20Ary!%20Conheci%20seu%20trabalho%20pelo%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+              target="_blank" rel="noopener noreferrer" aria-label="Conversar pelo WhatsApp">
+              <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
+              <span>Conversar com Ary pelo WhatsApp</span>
+            </a>
+            <a class="btn btn-ghost" href="assets/curriculo-ary.pdf" download>Baixar currículo <span
+                aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <div class="contact-side">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ariadnerdesouzaas26@gmail.com&su=Contato%20pelo%20portf%C3%B3lio%20Ary%20Labs"
+            target="_blank" rel="noopener noreferrer" class="contact-link">
+            ariadnerdesouzaas26<wbr>@gmail.com
+          </a>
+          <div class="social-links">
+            <a href="https://github.com/arys-bit" class="link-arrow" target="_blank" rel="noopener noreferrer">GitHub
+              ↗</a>
+            <a href="https://www.linkedin.com/in/ariadner-marilia-898698257/" class="link-arrow" target="_blank"
+              rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://www.instagram.com/aryscript/" class="link-arrow" target="_blank"
+              rel="noopener noreferrer">Instagram ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <a class="whatsapp-float"
+    href="https://wa.me/5515988143127?text=Ol%C3%A1%2C%20Ary!%20Conheci%20seu%20trabalho%20pelo%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+    target="_blank" rel="noopener noreferrer" aria-label="Conversar pelo WhatsApp">
+    <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
+    <span>Conversar pelo WhatsApp</span>
+  </a>
+
+  <footer class="site-footer">
+    <a href="#inicio" class="logo logo--mini" aria-label="Ary Labs Studio, ir para o início">
+      <span class="logo-word"><span class="logo-ary">Ary</span><svg class="logo-star" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" />
+        </svg><span class="logo-lab">Labs</span></span>
+    </a>
+    <p>&copy; 2026 Ary Labs Studio. Feito com código e propósito.</p>
+  </footer>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>
