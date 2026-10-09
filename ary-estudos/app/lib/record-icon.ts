@@ -1,0 +1,1 @@
+export function recordIconBatch(record:any,preference:any,icon:string,newPreferenceId:string){return [record,{id:preference?.id||newPreferenceId,kind:'settings',version:preference?.version||0,data:{...preference?.data,preference:'studyIcon:'+record.id,targetId:record.id,icon}}]}

@@ -1,0 +1,14 @@
+const fs=require('node:fs'),assert=require('node:assert/strict'),ts=require('typescript');
+require.extensions['.ts']=(module,path)=>module._compile(ts.transpileModule(fs.readFileSync(path,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,path);
+const {homeAgenda}=require('../app/lib/home-agenda.ts');
+const {validateRecord}=require('../app/lib/validate.ts');
+const r=(id,kind,data)=>({id,kind,data});
+const rows=[r('late','task',{title:'Pendente',date:'2026-10-08'}),r('done','task',{date:'2026-10-09',done:true}),r('lesson','task',{title:'Aula',date:'2026-10-10',type:'Videoaula'}),r('exercise','task',{date:'2026-10-10',type:'Exercícios no ChatGPT'}),r('exam','assessment',{date:'2026-10-10',type:'Prova'}),r('mandatory','assessment',{date:'2026-10-11',type:'Aula obrigatória'}),r('personal','event',{title:'Consulta médica',start:'2026-10-10T14:00:00Z',end:'2026-10-10T15:00:00Z'}),r('past','event',{title:'Aula passada',start:'2026-10-09T10:00:00Z',end:'2026-10-09T11:00:00Z'}),r('event','event',{title:'Aula ao vivo',start:'2026-10-10T01:00:00Z',end:'2026-10-10T02:00:00Z'})];
+const agenda=homeAgenda(rows,'2026-10-09',new Date('2026-10-09T18:00:00Z'));
+assert.deepEqual(agenda.tasks.map(x=>x.id),['late']);
+assert.deepEqual(agenda.lessons.map(x=>x.record.id),['event','lesson','mandatory']);
+assert.equal(agenda.lessons[0].date,'2026-10-09');assert.equal(agenda.lessons[0].time,'22:00');
+assert.deepEqual(homeAgenda([],'2026-10-09'),{tasks:[],lessons:[]});
+assert.doesNotThrow(()=>validateRecord(r('pref','settings',{preference:'studyIcon:course-id',targetId:'course-id',icon:'emoji:🇬🇧'})));
+const original=JSON.stringify(rows);homeAgenda(rows,'2026-10-09');assert.equal(JSON.stringify(rows),original);
+console.log('Passed: pending/completed tasks, upcoming lessons, assessments, event end times, São Paulo timezone, empty states and icon preference compatibility.');
